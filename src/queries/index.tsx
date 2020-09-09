@@ -1,31 +1,37 @@
-import { gql } from 'apollo-boost';
+import { gql } from "apollo-boost";
 
 export const FETCH_CONTACTS = gql`
-query {
-  contacts(order_by: {first_name: asc}) {
-    id
-    first_name
-    last_name
-    twitter_username
+  query {
+    contacts(order_by: { first_name: asc }) {
+      id
+      first_name
+      last_name
+      twitter_username
+      phones {
+        number
+      }
+      emails {
+        address
+      }
+    }
   }
-}
 `;
 
 export const FETCH_CONTACT = gql`
-query fetchContact($id: Int!) {
-  contacts_by_pk(id: $id) {
-    id
-    first_name
-    last_name
-    twitter_username
-    emails {
+  query fetchContact($id: Int!) {
+    contacts_by_pk(id: $id) {
       id
-      address
-    }
-    phones {
-      id
-      number
+      first_name
+      last_name
+      twitter_username
+      emails {
+        id
+        address
+      }
+      phones {
+        id
+        number
+      }
     }
   }
-}
 `;
