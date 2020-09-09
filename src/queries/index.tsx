@@ -7,12 +7,6 @@ export const FETCH_CONTACTS = gql`
       first_name
       last_name
       twitter_username
-      phones {
-        number
-      }
-      emails {
-        address
-      }
     }
   }
 `;
